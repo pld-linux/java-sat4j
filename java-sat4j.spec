@@ -16,6 +16,7 @@ Version:	2.2.0
 Release:	0.1
 License:	EPL or LGPLv2
 Group:		Libraries/Java
+# Created by sh %{srcname}-fetch.sh
 Source0:	%{srcname}-%{version}.tar.xz
 # Source0-md5:	7f11f90302bbf8091c5c7b6e179df2bd
 Source1:	%{srcname}-fetch.sh
