@@ -4,7 +4,6 @@
 %bcond_without	source		# don't build source jar
 %bcond_without	tests		# don't build and run tests
 
-%include	/usr/lib/rpm/macros.java
 
 # We want the version to match that shipped in Eclipse's Orbit project
 %define		eclipsedate	20100429
