@@ -4,6 +4,8 @@
 %bcond_without	source		# don't build source jar
 %bcond_without	tests		# don't build and run tests
 
+%{?use_default_jdk:%use_default_jdk 8}
+
 
 # We want the version to match that shipped in Eclipse's Orbit project
 %define		eclipsedate	20100429
@@ -12,7 +14,7 @@
 Summary:	A library of SAT solvers written in Java
 Name:		java-%{srcname}
 Version:	2.2.0
-Release:	0.1
+Release:	1
 License:	EPL or LGPLv2
 Group:		Libraries/Java
 # Created by sh %{srcname}-fetch.sh
@@ -23,8 +25,9 @@ URL:		http://www.sat4j.org/
 BuildRequires:  ant
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.556
 BuildRequires:	sed >= 4.0
+%buildrequires_jdk
 Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -41,7 +44,7 @@ without worrying about the details.
 %build
 export JAVA_HOME="%{java_home}"
 
-%ant -Dbuild.compiler=modern -Drelease=%{version} -DBUILD_DATE=%{eclipsedate} p2 
+%ant -Dbuild.compiler=modern -Drelease=%{version} -DBUILD_DATE=%{eclipsedate} -Dtarget=1.5 p2
 
 %install
 rm -rf $RPM_BUILD_ROOT
